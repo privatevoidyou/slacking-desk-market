@@ -1,0 +1,13 @@
+{
+  "manifestVersion": 1,
+  "id": "test.selftest",
+  "name": "自检（自动化）",
+  "version": "0.1.0",
+  "author": "slacking-desk 测试",
+  "description": "给开发者和 AI 用的无界面自检：后台页启动后把各项检查结果写进自己的 storage",
+  "minShellVersion": "0.1.0",
+  "background": "bg.html",
+  "backend": { "runtime": "python", "entry": "backend/main.py" },
+  "permissions": ["notify"],
+  "i18n": { "en": { "name": "Selftest (automated)", "description": "Headless checks for developers: the background page writes every result into its own storage" } }
+}

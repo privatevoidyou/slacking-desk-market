@@ -232,6 +232,7 @@ sp.run()   # 放在最后
 | `tests/bad-web` | 沙箱越权检查（拿 Tauri 接口、读宿主页面、联网、读其他插件文件、无权限发通知等），以及让自己的窗口死循环 |
 | `tests/bad-background` | 后台页 15 秒后死循环，壳应在约 10 秒后停掉它并通知 |
 | `tests/bad-python` | Python 后端崩溃、卡住超时、刷屏输出、留下子进程 |
+| `tests/selftest` | 无界面自检：后台页把 API、沙箱、CSP、后端调用的结果写进自己的 storage，供自动化测试读取 |
 
 ## 9. 平台差异
 
