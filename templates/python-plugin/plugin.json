@@ -1,0 +1,16 @@
+{
+  "manifestVersion": 1,
+  "id": "example.hello-python",
+  "name": "Python 示例",
+  "version": "0.1.0",
+  "author": "冷彻时光",
+  "description": "演示网页界面调用 Python 后端，以及后端调用壳的通知",
+  "icon": "icon.svg",
+  "minShellVersion": "0.1.0",
+  "ui": { "page": "ui/index.html", "width": 460, "height": 400 },
+  "backend": { "runtime": "python", "entry": "backend/main.py" },
+  "permissions": ["notify"],
+  "i18n": {
+    "en": { "name": "Python Sample", "description": "A web UI calling a Python backend, which calls the shell's notification API" }
+  }
+}

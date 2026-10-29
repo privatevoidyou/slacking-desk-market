@@ -1,0 +1,11 @@
+{
+  "manifestVersion": 1,
+  "id": "test.bad-background",
+  "name": "坏插件：后台卡死",
+  "version": "0.1.0",
+  "author": "slacking-desk 测试",
+  "description": "后台页启动 15 秒后进入死循环，壳应该在约 10 秒后停掉它并提示",
+  "minShellVersion": "0.1.0",
+  "background": "background.html",
+  "i18n": { "en": { "name": "Bad plugin: frozen background", "description": "Its background page freezes 15 s after start; the shell should stop it about 10 s later" } }
+}

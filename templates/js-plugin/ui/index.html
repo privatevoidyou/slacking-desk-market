@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 壳提供的 SDK 和基础样式，地址固定 -->
+    <link rel="stylesheet" href="/__sdk__/slacking.css" />
+    <script src="/__sdk__/slacking.js"></script>
+    <style>
+      body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+      .count { font-size: 40px; font-weight: 700; color: var(--sd-accent); line-height: 1.1; }
+      .row { display: flex; gap: 8px; align-items: center; }
+      .error { color: var(--sd-red); }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2 id="title"></h2>
+      <div id="info" class="sd-muted"></div>
+    </div>
+    <div class="sd-card">
+      <div id="countLabel" class="sd-muted"></div>
+      <div id="count" class="count">0</div>
+      <div class="row" style="margin-top: 12px">
+        <button id="add" class="sd-primary">+1</button>
+        <button id="reset"></button>
+      </div>
+    </div>
+    <div class="row">
+      <button id="notify"></button>
+      <span id="msg" class="sd-muted"></span>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

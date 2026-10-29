@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/__sdk__/slacking.css" />
+    <script src="/__sdk__/slacking.js"></script>
+    <style>
+      body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+      .row { display: flex; gap: 8px; flex-wrap: wrap; }
+      #out { white-space: pre-wrap; min-height: 120px; }
+    </style>
+  </head>
+  <body>
+    <h2>坏插件：Python 后端</h2>
+    <div class="sd-muted">点按钮后，下面会写出预期结果。整个过程中主窗口都应该能正常使用。</div>
+    <div class="row">
+      <button data-m="ping">启动 / 连通</button>
+      <button data-m="crash">崩溃</button>
+      <button data-m="hang">卡住 60 秒</button>
+      <button data-m="spam">刷屏输出</button>
+      <button data-m="spawn_child">留下子进程</button>
+      <button data-m="check_child">检查上次的子进程</button>
+    </div>
+    <div id="out" class="sd-card"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

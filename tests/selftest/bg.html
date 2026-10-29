@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="/__sdk__/slacking.js"></script>
+  </head>
+  <body>
+    <script>
+      // 结果写进 plugin-data/test.selftest/storage.json 的 "results"，预期值见 AGENTS.md
+      const violations = [];
+      document.addEventListener("securitypolicyviolation", (e) => violations.push(e.violatedDirective + " " + e.blockedURI));
+      const img = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok("loaded"); i.onerror = () => no(new Error("blocked")); i.src = src; });
+
+      (async () => {
+        const r = {};
+        const t = async (k, fn) => { try { r[k] = { ok: await fn() }; } catch (e) { r[k] = { err: e.code || e.name, msg: e.message }; } };
+        await t("info", () => slacking.app.info());
+        await t("storageSetGet", async () => { await slacking.storage.set("a", { x: [1, "中文"] }); return slacking.storage.get("a"); });
+        await t("notify", () => slacking.notify.show({ title: "selftest", body: "hi" }));
+        await t("backendEcho", () => slacking.backend.call("echo", { hello: "世界" }));
+        await t("backendFail", () => slacking.backend.call("fail"));
+        await t("backendMissing", () => slacking.backend.call("nope"));
+        await t("unknownApi", () => slacking.call("foo.bar"));
+        await t("tauri", () => typeof window.__TAURI_INTERNALS__ + "/" + typeof window.__TAURI__);
+        await t("parentDoc", () => parent.document.title);
+        await t("localStorage", () => localStorage.getItem("x"));
+        await t("fetchOwn", () => fetch("plugin.json").then((x) => x.json()).then((j) => j.id));
+        await t("fetchOther", () => fetch("/example.hello-js/plugin.json").then((x) => x.status));
+        await t("fetchIpc", () => fetch("http://ipc.localhost/plugin_remove", { method: "POST", body: "{}" }).then((x) => x.status));
+        await t("fetchIpc2", () => fetch("ipc://localhost/plugin_remove", { method: "POST", body: "{}" }).then((x) => x.status));
+        // no-cors 不受跨域限制，只有 CSP 能拦住
+        await t("fetchNoCors", () => fetch("https://www.baidu.com/favicon.ico", { mode: "no-cors" }).then((x) => x.type));
+        await t("img", () => img("https://www.baidu.com/favicon.ico?" + Date.now()));
+        await t("origin", () => String(window.origin) + " " + location.href);
+        r.violations = violations;
+        await slacking.storage.set("results", r);
+      })();
+    </script>
+  </body>
+</html>

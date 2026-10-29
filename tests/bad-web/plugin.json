@@ -1,0 +1,12 @@
+{
+  "manifestVersion": 1,
+  "id": "test.bad-web",
+  "name": "坏插件：网页越权",
+  "version": "0.1.0",
+  "author": "slacking-desk 测试",
+  "description": "检查沙箱、联网限制和权限；也可以让自己的窗口卡死",
+  "minShellVersion": "0.1.0",
+  "ui": { "page": "ui/index.html", "width": 560, "height": 560 },
+  "permissions": [],
+  "i18n": { "en": { "name": "Bad plugin: web escape", "description": "Checks the sandbox, network block and permissions; can also freeze its own window" } }
+}
