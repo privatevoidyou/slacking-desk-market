@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "id": "example.hello-js",
+  "name": "JS 示例",
+  "version": "0.1.0",
+  "author": "冷彻时光",
+  "description": "最简单的网页插件：读壳的信息、存数据、发通知、跟随主题",
+  "icon": "icon.svg",
+  "minShellVersion": "0.1.0",
+  "ui": { "page": "ui/index.html", "width": 440, "height": 420 },
+  "permissions": ["notify"],
+  "i18n": {
+    "en": { "name": "JS Sample", "description": "The simplest web plugin: shell info, storage, notifications and theming" }
+  }
+}

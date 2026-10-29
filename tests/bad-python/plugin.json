@@ -1,0 +1,12 @@
+{
+  "manifestVersion": 1,
+  "id": "test.bad-python",
+  "name": "坏插件：Python 后端",
+  "version": "0.1.0",
+  "author": "slacking-desk 测试",
+  "description": "让 Python 后端崩溃、卡住、刷屏、留下子进程，检查壳的处理",
+  "minShellVersion": "0.1.0",
+  "ui": { "page": "ui/index.html", "width": 560, "height": 520 },
+  "backend": { "runtime": "python", "entry": "backend/main.py" },
+  "i18n": { "en": { "name": "Bad plugin: Python backend", "description": "Crashes, hangs, floods output and leaves child processes to test the shell" } }
+}

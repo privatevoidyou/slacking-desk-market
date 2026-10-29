@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/__sdk__/slacking.css" />
+    <script src="/__sdk__/slacking.js"></script>
+    <style>
+      body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+      .row { display: flex; gap: 8px; flex-wrap: wrap; }
+      li { margin: 4px 0; }
+      .ok { color: var(--sd-green); }
+      .bad { color: var(--sd-red); font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <h2>坏插件：网页越权</h2>
+    <div class="sd-muted">每一项都应该是绿色的「已拦住」。出现红色就是安全问题，请截图反馈。</div>
+    <div class="row">
+      <button id="check" class="sd-primary">运行越权检查</button>
+      <button id="nav">尝试跳到外部网页</button>
+      <button id="loop">死循环（卡死本窗口）</button>
+    </div>
+    <ul id="out" class="sd-card"></ul>
+    <script src="app.js"></script>
+  </body>
+</html>
